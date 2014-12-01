@@ -34,16 +34,16 @@ var pubkey = '04' + PublicX.split(' ').join('') + PublicY.split(' ').join('');
 var chaincode = '84ac14bc4b388b33da099a0b4ee3b507284d99e1476639e36e5ca5e6af86481e';
 
 /*
-* NOTE: This should be revalidated (remove spaces if addresses match)
-* because there is no Armory client for Darkcoin at the moment.
-* This is some addresses generated from the wallet:
+ * NOTE: This should be revalidated because there is no Armory wallet
+ * for Darkcoin at the moment.
+ * This is some addresses generated from the wallet:
  */
 var address = [
-  'XyAqB1Hm6MVrtDzAN1ELYYjPq6sRsg6sUp ',
-  'XmxhZ4goNCAHXyFd2JypUPTgUHWD1B2w3r ',
-  'XmM2RA1H26jbi89ShANXuwp7MBqMydEx5k ',
-  'XfLc3SqPdtWvNKgCBrEAQb5txDFXC6suYA ',
-  'Xga48x1S9dEU9WH1R67vNPg2mL6iegZVhr '
+  'XyAqB1Hm6MVrtDzAN1ELYYjPq6sRsg6sUp',
+  'XmxhZ4goNCAHXyFd2JypUPTgUHWD1B2w3r',
+  'XmM2RA1H26jbi89ShANXuwp7MBqMydEx5k',
+  'XfLc3SqPdtWvNKgCBrEAQb5txDFXC6suYA',
+  'Xga48x1S9dEU9WH1R67vNPg2mL6iegZVhr'
 ];
 
 var instance, fromseed, first;

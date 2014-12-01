@@ -38,19 +38,23 @@ describe('Electrum', function() {
     var elec = new Electrum(mpk);
     var pubkey = elec.generatePubKey(0);
     var addr = Address.fromPubKey(pubkey);
-    addr.as('base58').should.equal('15Ur7LV4hZFvFYQHkB12g1mdnKuHyHBDiW');
+    addr.as('base58').should.equal('XfAgwb8xfGUWQUzsc4KFXYTRcfUz1ngDVp');
   });
+  /*
+  * NOTE: This should be revalidated because there is no Electrum wallet
+  * for Darkcoin at the moment.
+  */
   it('should generate correct (change) public keys at sequence 0,1,2', function() {
     var expected_values = {
       receiving: [
-        '15Ur7LV4hZFvFYQHkB12g1mdnKuHyHBDiW',
-        '19K48MhyXK4qChGCUJzAHxLFjbQRg9tb9F',
-        '1EfoxVmRVzYf1a1WELv2qMvEEpu2u5pXsy'
+        'XfAgwb8xfGUWQUzsc4KFXYTRcfUz1ngDVp',
+        'XiztxcMsV2HRMdrnLCJP9V23Zvz7ew4ArR',
+        'XpMenkRKThmFAWc66EEFgtc25AUiv37B6r'
       ],
       change: [
-        '138EGyTTyXFuqWBr8Jd7qmPbnfJUFmmuQg',
-        '12H7HZhtn7aNpTySXysKXiyxULybMktukh',
-        '1KMEUhmmiSdjX9fsv8aCAiYnVZnTTjqx7W'
+        'Xcp57E7MwEUVzSnRzBwLhJ5PcztAGv68ne',
+        'Xbxx7pMnjpnxyQa2PsBYPFfkJgZHPPVheJ',
+        'Xu35JxRfg9rKg6GTn1tR2FEaKuN9aHzkq1'
       ]
     };
     var elec = new Electrum(mpk);
@@ -70,8 +74,3 @@ describe('Electrum', function() {
     }
   });
 });
-
-
-
-
-
