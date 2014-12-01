@@ -1,8 +1,7 @@
 Darkcore
 =======
 
-[![Build Status](https://travis-ci.org/UdjinM6/darkcore.svg)](https://travis-ci.org/UdjinM6/darkcore)
-
+[![Build Status](https://travis-ci.org/UdjinM6/darkcore.svg?branch=master)](https://travis-ci.org/UdjinM6/darkcore)
 
 A pure, powerful core for your Darkcoin project.
 
