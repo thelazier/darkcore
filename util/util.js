@@ -1,4 +1,7 @@
+'use strict';
+
 var crypto = require('crypto');
+var x11hash = require('x11-hash');
 var bignum = require('bignum');
 var Binary = require('binary');
 var Put = require('bufferput');
@@ -7,6 +10,10 @@ var sjcl = require('../lib/sjcl');
 if (process.browser) {
   var hashjs = require('hash.js');
 }
+
+exports.x11 = function(data) {
+    return x11hash.digest(data);
+};
 
 var sha256 = exports.sha256 = function(data) {
   return new Buffer(crypto.createHash('sha256').update(data).digest('binary'), 'binary');
@@ -135,12 +142,12 @@ var fitsInNBits = function(integer, n) {
   // TODO: make this efficient!!!
   return integer.toString(2).replace('-', '').length < n;
 };
-exports.bytesNeededToStore = bytesNeededToStore = function(integer) {
+var bytesNeededToStore = exports.bytesNeededToStore = function(integer) {
   if (integer === 0) return 0;
   return Math.ceil(((integer).toString(2).replace('-', '').length + 1) / 8);
 };
 
-exports.negativeBuffer = negativeBuffer = function(b) {
+var negativeBuffer = exports.negativeBuffer = function(b) {
   // implement two-complement negative
   var c = new Buffer(b.length);
   // negate each byte

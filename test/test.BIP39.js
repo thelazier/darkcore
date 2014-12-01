@@ -153,6 +153,7 @@ describe('BIP39', function() {
       for (var v = 0 ; v < vectors.length ; v++) {
         (function(v){
           it('should pass test vector ' + v, function() {
+            this.timeout(5000);
             var vector = vectors[v];
             var code = vector[0];
             var mnemonic = vector[1];

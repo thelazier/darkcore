@@ -1,12 +1,16 @@
 {
-  "name": "bitcore",
-  "description": "Bitcoin Library",
+  "name": "Darkcore",
+  "description": "Darkcoin Library based on https://github.com/bitpay/bitcore.git",
   "version": "0.1.40",
   "author": {
-    "name": "Stephen Pair",
-    "email": "stephen@bitpay.com"
+    "name": "UdjinM6",
+    "email": "udjinm6@gmail.com"
   },
   "contributors": [
+    {
+      "name": "Stephen Pair",
+      "email": "stephen@bitpay.com"
+    },
     {
       "name": "Stefan Thomas",
       "email": "moon@justmoon.net"
@@ -37,8 +41,8 @@
     }
   ],
   "keywords": [
-    "bitcoin",
-    "btc",
+    "darkcoin",
+    "drk",
     "satoshi",
     "money",
     "currency",
@@ -47,7 +51,7 @@
   "main": "bitcore.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/udjinm6/darkcore.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",
@@ -73,7 +77,8 @@
     "preconditions": "^1.0.7",
     "protobufjs": "=3.0.0",
     "sjcl": "=1.0.1",
-    "socks5-client": "~0.3.6"
+    "socks5-client": "~0.3.6",
+    "x11-hash": "0.0.2"
   },
   "testling": {
     "harness": "mocha-bdd",

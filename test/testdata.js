@@ -35,6 +35,5 @@ module.exports.dataBase58KeysInvalid = dataBase58KeysInvalid;
 module.exports.dataSighash = dataSighash;
 module.exports.dataSecp256k1 = dataSecp256k1;
 
-var buffer = new Buffer(fs.readFileSync('test/data/blk86756-testnet.dat'));
+var buffer = new Buffer(fs.readFileSync('test/data/blk65157-testnet.dat'));
 module.exports.dataRawBlock = buffer;
-  

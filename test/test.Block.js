@@ -55,7 +55,7 @@ describe('Block', function() {
     should.exist(b.getHash());
     b.checkHash().should.equal(true);
     b.checkProofOfWork().should.equal(true);
-    b.getWork().toString().should.equal('17180131332');
+    b.getWork().toString().should.equal('2205571044');
     b.checkTimestamp().should.equal(true);
 
   });
@@ -83,7 +83,7 @@ describe('Block', function() {
   it('should be able to checkMerkleRoot', function() {
 
     var b = getBlock();
-    b.getMerkleTree(b.txs).length.should.equal(45);
+    b.getMerkleTree(b.txs).length.should.equal(3);
     bitcore.buffertools.toHex(b.calcMerkleRoot(b.txs)).should.equal(bitcore.buffertools.toHex(new Buffer(b.merkle_root)));
 
     b.checkMerkleRoot(b.txs);
@@ -97,22 +97,22 @@ describe('Block', function() {
   });
 
 
- 
+
   it('should be able to checkProofOfWork', function() {
     var b = getBlock();
 
-    b.hash = bitcore.buffertools.reverse(new Buffer('000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11', 'hex'));
+    b.hash = bitcore.buffertools.reverse(new Buffer('0000000070aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785', 'hex'));
     b.checkHash().should.equal(true);
     b.checkProofOfWork().should.equal(true);
 
     // wrong hash hash, ok proof of work
-    b.hash = bitcore.buffertools.reverse(new Buffer('000000000000016390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11', 'hex'));
+    b.hash = bitcore.buffertools.reverse(new Buffer('0000000000aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785', 'hex'));
     b.checkProofOfWork().should.equal(true);
     b.checkHash().should.equal(false);
 
 
     // wrong hash hash, wrong proof of work
-    b.hash = bitcore.buffertools.reverse(new Buffer('0000000bbb99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11', 'hex'));
+    b.hash = bitcore.buffertools.reverse(new Buffer('0000000770aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785', 'hex'));
     b.checkHash().should.equal(false);
     b.checkProofOfWork.bind().should.throw();
   });
@@ -128,34 +128,35 @@ describe('Block', function() {
   it('should be able to get components from blocks', function() {
     var b = getBlock(true);
 
-    bitcore.util.formatHashFull(b.getHash()).should.equal('000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11');
+    bitcore.util.formatHashFull(b.getHash()).should.equal('0000000070aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785');
 
-    bitcore.util.formatHashFull(b.getHeader()).should.equal('d6383bd51c3fffc051be10ce58e6d52d1eb00470ae1ab4d5a3375c0f51382c6f249fff84e9888286974cfc97000000003c35b5e70b13d5b938fef4e998a977c17bea978390273b7c50a9aa4b00000002');
+    bitcore.util.formatHashFull(b.getHeader()).should.equal('0068698d1d01f284546961ee2ba40e9430a013921b47920d97ae3f08f27da370aff1c656191a3e48132b263f00000000cc19696545fb036f8ef8bfb48a31291638643357780303e725859c0800000002');
 
-    bitcore.util.formatHashFull(b.merkle_root).should.equal('58e6d52d1eb00470ae1ab4d5a3375c0f51382c6f249fff84e9888286974cfc97');
+    bitcore.util.formatHashFull(b.merkle_root).should.equal('2ba40e9430a013921b47920d97ae3f08f27da370aff1c656191a3e48132b263f');
 
   });
 
 
-  it('#getBlockValue should return the correct block value', function() {
+  // Doesn't make sense for Darkcoin because of DGW
+  /*it('#getBlockValue should return the correct block value', function() {
     var c = new bitcore.Bignum(bitcore.util.COIN);
     bitcore.Block.getBlockValue(0).div(c).toNumber().should.equal(50);
     bitcore.Block.getBlockValue(1).div(c).toNumber().should.equal(50);
     bitcore.Block.getBlockValue(209999).div(c).toNumber().should.equal(50);
     bitcore.Block.getBlockValue(210000).div(c).toNumber().should.equal(25);
     bitcore.Block.getBlockValue(2100000).toNumber().should.equal(4882812);
-  });
+});*/
 
 
   it('#getStandardizedObject should return object', function() {
     var b = getBlock();
     var o = b.getStandardizedObject(b.txs);
 
-    o.hash.should.equal('000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11');
-    o.n_tx.should.equal(22);
-    o.size.should.equal(8003);
+    o.hash.should.equal('0000000070aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785');
+    o.n_tx.should.equal(2);
+    o.size.should.equal(6911);
     var o2 = b.getStandardizedObject();
-    o2.hash.should.equal('000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11');
+    o2.hash.should.equal('0000000070aafd2a723aeee36f0bf545b0279739f6426287edaf5b54fc035785');
     o2.size.should.equal(0);
   });
 
@@ -185,8 +186,3 @@ describe('Block', function() {
     tx.isCoinBase().should.equal(true);
   });
 });
-
-
-
-
-

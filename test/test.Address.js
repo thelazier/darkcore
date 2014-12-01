@@ -14,29 +14,29 @@ describe('Address', function() {
     should.exist(Address);
   });
   it('should be able to create instance', function() {
-    var a = new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T');
+    var a = new Address('XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
     should.exist(a);
   });
   it('should be able to transform to string', function() {
-    var a = new Address('1GfGL3iLTfX43KSCd95WhMi4bgU36qjzC1');
+    var a = new Address('XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
     a.toString.bind(a).should.not.throw();
-    a.toString().should.equal('1GfGL3iLTfX43KSCd95WhMi4bgU36qjzC1');
+    a.toString().should.equal('XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
   });
   var data = [
-    ['1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa', true],
+    ['XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6', true],
     ['11111111111111111111111111122222234', false], // totally invalid
     ['32QBdjycLwbDTuGafUwaU5p5GxzSLPYoF6', true],
-    ['1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9', true],
-    ['1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNb', false], //bad checksum ... thanks @wtogami
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', true],
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW600', false], // bad checksum
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW620', false], // bad checksum
-    ['1ANNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', false], // data changed, original checksum.
-    ['1A Na15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i', false], // invalid chars
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62j', false], // checksums don't match.
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62!', false], // bad char (!)
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62iz', false], // too long Bitcoin address
-    ['1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62izz', false], // too long Bitcoin address
+    ['XnuCAYmAiVHE6Xv3D7Xw685wWzqtcfexLh', true],
+    ['XnuCAYmAiVHE6Xv3D7Xw685wWzqtcfexLa', false], //bad checksum ... thanks @wtogami
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCjV', true],
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLC00', false], // bad checksum
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCj0', false], // bad checksum
+    ['XwxtGyj1NZnmHfWFDYjGsyY4qzkJXBLCjV', false], // data changed, original checksum.
+    ['Xw tGyj1NZnmHfWFDYjGsyY4qzkJXBLCjV', false], // invalid chars
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCjv', false], // checksums don't match.
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCj!', false], // bad char (!)
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCjVv', false], // too long Bitcoin address
+    ['XwXtGyj1NZnmHfWFDYjGsyY4qzkJXBLCjVvv', false], // too long Bitcoin address
     ['2cFupjhnEsSn59qHXstmK2ffpLv2', false], // valid base58 invalid data
     ['dB7cwYdcPSgiyAwKWL3JwCVwSk6epU2txw', false], // valid base58, valid length, invalid network
     ['2MnmgiRH4eGLyLc9eAqStzk7dFgBjFtUCtu', false], // valid base58, valid length, invalid network
@@ -56,9 +56,9 @@ describe('Address', function() {
   });
   it('should be able to detect network from an address', function() {
     // livenet
-    var a = new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T');
+    var a = new Address('XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6');
     a.network().name.should.equal('livenet');
-    a = new Address('1dice8EMZmqKvrGE4Qc9bUFf9PX3xaYDp');
+    a = new Address('XnuCAYmAiVHE6Xv3D7Xw685wWzqtcfexLh');
     a.network().name.should.equal('livenet');
     //p2sh
     a = new Address('3QRhucKtEn5P9i7YPxzXCqBtPJTPbRFycn');
@@ -77,8 +77,8 @@ describe('Address', function() {
   it('#isScript should work', function() {
     // invalid
     new Address('1T').isScript().should.equal(false);
-    // pubKeyHash livenet 
-    new Address('1KfyjCgBSMsLqiCbakfSdeoBUqMqLUiu3T').isScript().should.equal(false);
+    // pubKeyHash livenet
+    new Address('XsV4GHVKGTjQFvwB7c6mYsGV3Mxf7iser6').isScript().should.equal(false);
     // script livenet
     new Address('3QRhucKtEn5P9i7YPxzXCqBtPJTPbRFycn').isScript().should.equal(true);
     // pubKeyHash testnet
@@ -94,7 +94,7 @@ describe('Address', function() {
       key.private = privkey;
       key.regenerateSync();
       var hash = bitcore.util.sha256ripe160(key.public);
-      var addr = new bitcore.Address(0, hash);
+      var addr = new bitcore.Address(0x4c, hash);
       addr.isValid().should.equal(true);
     });
 
@@ -104,7 +104,7 @@ describe('Address', function() {
       key.private = privkey;
       key.regenerateSync();
       var f = function() {
-        new bitcore.Address(0, key.public);
+        new bitcore.Address(0x4c, key.public);
       };
       expect(f).to.throw(Error);
     });
@@ -112,14 +112,14 @@ describe('Address', function() {
 
   describe('constructor, 2 params', function() {
     it('should make an address from a version, hash', function() {
-      var hash = new Buffer('1ab59a0fd1d5fc446d38746ee033c8af57ed6bc0', 'hex');
-      var addr = new Address(0, hash);
-      addr.toString().should.equal('13SE7uKmnQwGA8X1A8WcZnX2ceQRDEzsAd');
+      var hash = new Buffer('5cb2e549012c855f58d7d91aca78151c1cb5eab6', 'hex');
+      var addr = new Address(0x4c, hash);
+      addr.toString().should.equal('Xj8zJnj7xxXstimrGWgkDN9SDuAoviM9Gu');
     });
     it('should fail with param version, string', function() {
-      var hash = '1ab59a0fd1d5fc446d38746ee033c8af57ed6bc0';
+      var hash = '5cb2e549012c855f58d7d91aca78151c1cb5eab6';
       (function() {
-        var addr = new Address(0, hash);
+        var addr = new Address(0x4c, hash);
       }).should.throw();
     });
   });
@@ -127,20 +127,20 @@ describe('Address', function() {
 
   describe('#fromPubKey', function() {
     it('should make pubkeyhash address from an uncompressed public key', function() {
-      var pubkey = new Buffer('04fa05ce8b25010cb6e17a30e0b66668bf083c40687547748ec330ee77adf53a42abd3d26148cbacfcf79c907ddefeb2c37f8bebc0a695ba79d634449d871de218', 'hex');
+      var pubkey = new Buffer('04A8F9140254392BA7478878383F684CEBB10306706C294D80095D6CF6A6DC958E9E31FFDB6D6CED33F836867554BDF797EDA35F2E51AC345D719A4723690F5726', 'hex');
       var hash = bitcore.util.sha256ripe160(pubkey);
-      var addr = new Address(0, hash);
+      var addr = new Address(0x4c, hash);
       addr.toString().should.equal(Address.fromPubKey(pubkey).toString());
     });
   });
   describe('#fromKey', function() {
-    it('should make this pubkeyhash address from uncompressed this public key', function() {
+    it('should make compressed address from private key', function() {
       var k = new Key();
-      k.private = new Buffer('43532455C88590A594D552F76DDB70EC1CFD7746F05C10CBB70B1EA9552EDF87', 'hex');
+      k.private = new Buffer('AFC66145A5BFDA8306D597295F49DA4B3EAAA9B0AD82400681532383B6CDB605', 'hex');
       k.compressed = true;
       k.regenerateSync();
       var a = Address.fromKey(k);
-      a.toString().should.equal('1L8k7WpWHMNkqVPTaZhzFU5VaWyjZEK7mD');
+      a.toString().should.equal('Xbg5dKWmzE2tp9rGbvFpwu1jN4yjvcwRWd');
     });
   });
 
