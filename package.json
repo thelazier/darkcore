@@ -1,6 +1,6 @@
 {
-  "name": "Darkcore",
-  "description": "Darkcoin Library based on https://github.com/bitpay/bitcore.git",
+  "name": "darkcore",
+  "description": "Darkcoin Library based on Bitcore (https://github.com/bitpay/bitcore.git)",
   "version": "0.1.40",
   "author": {
     "name": "UdjinM6",
