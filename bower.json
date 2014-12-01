@@ -1,19 +1,19 @@
 {
-  "name": "bitcore",
+  "name": "darkcore",
   "main": "browser/bundle.js",
-  "version": "0.1.36",
-  "homepage": "http://bitcore.io",
+  "version": "0.1.40",
   "authors": [
+    "UdjinM6 (<udjinm6@gmail.com>)",
     "Ryan X. Charles (<ryan@bitpay.com>)"
   ],
-  "description": "A pure, powerful core for your bitcoin project.",
+  "description": "A pure, powerful core for your darkcoin project. Based on bitcore.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
-    "bitcoin",
-    "bitcore",
-    "btc",
+    "darkcoin",
+    "darkcore",
+    "drk",
     "satoshi"
   ],
   "license": "MIT",

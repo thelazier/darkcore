@@ -1,8 +1,8 @@
 Bitcore
 =======
 
-[![Build Status](https://travis-ci.org/bitpay/bitcore.svg?branch=master)](https://travis-ci.org/bitpay/bitcore)
-[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore.svg)](https://coveralls.io/r/bitpay/bitcore)
+[![Build Status](https://travis-ci.org/UdjinM6/darkcore.svg)](https://travis-ci.org/UdjinM6/darkcore)
+[![Coverage Status](https://coveralls.io/repos/UdjinM6/darkcore/badge.png)](https://coveralls.io/r/UdjinM6/darkcore)
 
 A pure, powerful core for your bitcoin project.
 
@@ -138,5 +138,3 @@ And then open coverage/lcov-report/index.html in your browser.
 **Code released under [the MIT license](https://github.com/bitpay/bitcore/blob/master/LICENSE).**
 
 Copyright 2013-2014 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bitpay/bitcore/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
