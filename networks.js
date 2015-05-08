@@ -14,9 +14,9 @@ exports.livenet = {
   magic: hex('fbc0b6db'),
   addressVersion: 0x4c,
   privKeyVersion: 204,
-  P2SHVersion: 5,
-  hkeyPublicVersion: 0x0488b21e,
-  hkeyPrivateVersion: 0x0488ade4,
+  P2SHVersion: 16,
+  hkeyPublicVersion: 0x02fe52f8,
+  hkeyPrivateVersion: 0x02fe52cc,
   genesisBlock: {
     hash: hexReverse('00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6'),
     merkle_root: hexReverse('e0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7'),
@@ -29,7 +29,9 @@ exports.livenet = {
   },
   dnsSeeds: [
     'dnsseed.darkcoin.io',
-    'dnsseed.darkcoin.qa'
+    'dnsseed.darkcoin.qa',
+    'dnsseed.masternode.io',
+    'dnsseed.dashpay.io'
   ],
   defaultClientPort: 9999
 };
@@ -39,11 +41,11 @@ exports.mainnet = exports.livenet;
 exports.testnet = {
   name: 'testnet',
   magic: hex('cee2caff'),
-  addressVersion: 0x6f,
+  addressVersion: 0x8b,
   privKeyVersion: 239,
-  P2SHVersion: 196,
-  hkeyPublicVersion: 0x043587cf,
-  hkeyPrivateVersion: 0x04358394,
+  P2SHVersion: 19,
+  hkeyPublicVersion: 0x3a8061a0,
+  hkeyPrivateVersion: 0x3a805837,
   genesisBlock: {
     hash: hexReverse('00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c'),
     merkle_root: hexReverse('e0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7'),
@@ -56,7 +58,8 @@ exports.testnet = {
   },
   dnsSeeds: [
     'testnet-seed.darkcoin.io',
-    'testnet-seed.darkcoin.qa'
+    'testnet-seed.darkcoin.qa',
+    'test.dnsseed.masternode.io'
   ],
   defaultClientPort: 19999
 };
