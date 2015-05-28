@@ -11,7 +11,7 @@ var hexReverse = function(hex) {
 
 exports.livenet = {
   name: 'livenet',
-  magic: hex('fbc0b6db'),
+  magic: hex('bf0c6bbd'),
   addressVersion: 0x4c,
   privKeyVersion: 204,
   P2SHVersion: 16,
