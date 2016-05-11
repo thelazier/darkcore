@@ -41,7 +41,7 @@ exports.mainnet = exports.livenet;
 exports.testnet = {
   name: 'testnet',
   magic: hex('cee2caff'),
-  addressVersion: 0x8b,
+  addressVersion: 0x8c,
   privKeyVersion: 239,
   P2SHVersion: 19,
   hkeyPublicVersion: 0x3a8061a0,
