@@ -77,7 +77,7 @@
     "preconditions": "^1.0.7",
     "protobufjs": "=3.0.0",
     "sjcl": "=1.0.1",
-    "socks5-client": "~0.3.6",
+    "socks5-client": "~1.1.2",
     "x11-hash": "0.0.2"
   },
   "testling": {
